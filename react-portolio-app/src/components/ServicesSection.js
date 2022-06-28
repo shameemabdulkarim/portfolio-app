@@ -6,10 +6,18 @@ import money from "../images/money.svg";
 import home2 from "../images/home2.png";
 import { About, Description, Image } from "../styles";
 import styled from "styled-components";
+import { UseScroll } from "./UseScroll";
+import { scrollReveal } from "../animation";
 
 const ServicesSection = () => {
+  const [element, controls] = UseScroll();
   return (
-    <Services>
+    <Services
+      variants={scrollReveal}
+      animate={controls}
+      initial="hidden"
+      ref={element}
+    >
       <Description>
         <h2>
           High <span>quality</span> services
